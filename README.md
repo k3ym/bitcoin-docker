@@ -10,18 +10,27 @@ Turn off firewall software installed on your computer because some dependencies 
 
 ## Docker build
 - after cloning this repo
+
 `cd bitcoin-docker`
+
 `git clone https://github.com/bitcoin/bitcoin.git`
+
 `docker build . -t btc-docker`
+
 `docker run -p 8332:8332 -p 8333:8333 -p 18332:18332 -o 18333:18333 -v $PWD/bitcoin:/root/bitcoin -it btc-docker bash`
 
 - inside container
 
 `cd bitcoin`
+
 `./autogen.sh`
+
 `./configure`
+
 `make`
+
 `make check`
+
 `make install`
 
 # References
