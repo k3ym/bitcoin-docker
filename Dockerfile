@@ -14,3 +14,11 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root
+RUN git clone https://github.com/bitcoin/bitcoin.git
+RUN cd bitcoin
+RUN ./autogen.sh \
+    && ./configure \
+    && make \
+    && make install
+
+EXPOSE 8332 8333 18332 18333
